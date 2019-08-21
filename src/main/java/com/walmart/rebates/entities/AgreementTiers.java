@@ -21,26 +21,26 @@ import javax.persistence.Table;
 public class AgreementTiers implements Serializable{
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "\"AgreementNum\"")
 	private int agrNum;
 
 	@Id
 	@Column(name = "\"TierSequence\"")
-	private Integer tierSequence;
+	private int tierSequence;
 
 	@Column(name = "\"TierFrom\"")
-	private float tierFrom;
+	private int tierFrom;
 
 	@Column(name = "\"TierTo\"")
-	private float tierTo;
+	private int tierTo;
 
 	@Column(name = "\"TierRate\"")
-	private String tierRate;
+	private int tierRate;
 
-	@ManyToOne(cascade= CascadeType.ALL)
+/*	@ManyToOne(cascade= CascadeType.ALL)
 	@JoinColumn(name = "\"AgreementNum\"" , referencedColumnName = "\"AgreementNum\"", insertable = false, updatable = false)
-	private AgreementHeader agrHeader;
+	private AgreementHeader agrHeader;*/
 
 	
 
@@ -52,43 +52,45 @@ public class AgreementTiers implements Serializable{
 		this.agrNum = agrNum;
 	}
 
-	public Integer getTierSequence() {
-	return tierSequence;
+	public int getTierSequence() {
+		return tierSequence;
 	}
 
-	public void setTierSequence(Integer tierSequence) {
-	this.tierSequence = tierSequence;
+	public void setTierSequence(int tierSequence) {
+		this.tierSequence = tierSequence;
 	}
 
-	public float getTierFrom() {
-	return tierFrom;
+	public int getTierFrom() {
+		return tierFrom;
 	}
 
-	public void setTierFrom(float tierFrom) {
-	this.tierFrom = tierFrom;
+	public void setTierFrom(int tierFrom) {
+		this.tierFrom = tierFrom;
 	}
 
-	public float getTierTo() {
-	return tierTo;
+	public int getTierTo() {
+		return tierTo;
 	}
 
-	public void setTierTo(float tierTo) {
-	this.tierTo = tierTo;
+	public void setTierTo(int tierTo) {
+		this.tierTo = tierTo;
 	}
 
-	public String getTierRate() {
-	return tierRate;
+	public int getTierRate() {
+		return tierRate;
 	}
 
-	public void setTierRate(String tierRate) {
-	this.tierRate = tierRate;
+	public void setTierRate(int tierRate) {
+		this.tierRate = tierRate;
 	}
 
-	public AgreementHeader getAgrHeader() {
+	
+
+/*	public AgreementHeader getAgrHeader() {
 	return agrHeader;
 	}
 
 	public void setAgrHeader(AgreementHeader agrHeader) {
 	this.agrHeader = agrHeader;
-	}
+	} */
 }

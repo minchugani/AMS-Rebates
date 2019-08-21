@@ -17,21 +17,21 @@ import javax.persistence.Table;
 @IdClass(AgrVenKeys.class)
 public class AgreementVendor implements Serializable {
 	@Id 
-	@GeneratedValue
+//	@GeneratedValue
 	@Column(name = "\"AgreementNum\"")
-	private int agrnum;
+	private int agrNum;
 	
-	@Id
+    @Id
 	@Column(name = "\"VendorNumber\"")
 	private String vendorNumber;
 	
-	@ManyToOne(cascade= CascadeType.ALL)
+	/*@ManyToOne(cascade= CascadeType.ALL)
 	@JoinColumn(name = "\"AgreementNum\"" , referencedColumnName = "\"AgreementNum\"", insertable = false, updatable = false)
 	private AgreementHeader  agrHeader ;
 	
 	@ManyToOne(cascade= CascadeType.ALL)
 	@JoinColumn(name = "\"VendorNumber\"" , referencedColumnName = "\"VendorNumber\"", insertable = false, updatable = false)
-	private VendorMaster vendor;
+	private VendorMaster vendor;*/
 	
 
 
@@ -43,7 +43,17 @@ public class AgreementVendor implements Serializable {
 		this.vendorNumber = vendorNumber;
 	}
 
-	public AgreementHeader getAgrHeader() {
+	public int getAgrNum() {
+		return agrNum;
+	}
+
+	public void setAgrNum(int agrNum) {
+		this.agrNum = agrNum;
+	}
+
+	
+
+	/*public AgreementHeader getAgrHeader() {
 		return agrHeader;
 	}
 
@@ -57,7 +67,7 @@ public class AgreementVendor implements Serializable {
 
 	public void setVendor(VendorMaster vendor) {
 		this.vendor = vendor;
-	}
+	}*/
 	
 	
 }

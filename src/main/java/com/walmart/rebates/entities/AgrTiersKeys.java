@@ -2,16 +2,20 @@ package com.walmart.rebates.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+
 public class AgrTiersKeys implements Serializable{
 
+	//private int agrNum;
+	private int tierSequence;
+	@Column(name = "\"AgreementNum\"")
 	private int agrNum;
-	private String tierSequence;
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + agrNum;
-		result = prime * result + ((tierSequence == null) ? 0 : tierSequence.hashCode());
+		result = prime * result + tierSequence;
 		return result;
 	}
 	@Override
@@ -25,13 +29,11 @@ public class AgrTiersKeys implements Serializable{
 		AgrTiersKeys other = (AgrTiersKeys) obj;
 		if (agrNum != other.agrNum)
 			return false;
-		if (tierSequence == null) {
-			if (other.tierSequence != null)
-				return false;
-		} else if (!tierSequence.equals(other.tierSequence))
+		if (tierSequence != other.tierSequence)
 			return false;
 		return true;
 	}
+	
 	
 	
 

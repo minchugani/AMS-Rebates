@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,41 +12,58 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
 
 @Entity
 @Table(name = "\"AgreementItems\"")
+//@SequenceGenerator(name="seq", initialValue=1, allocationSize=100)
 @IdClass(AgrItemKeys.class)
 public class AgreementItems implements Serializable{
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "\"AgreementNum\"")
-	private int agrnum;
+	//@EmbeddedId
+	//AgrItemKeys agritemkeys ;
+
+	/*public AgrItemKeys getAgritemkeys() {
+		return agritemkeys;
+	}
+
+	public void setAgritemkeys(AgrItemKeys agritemkeys) {
+		this.agritemkeys = agritemkeys;
+	}*/
 	
-	@Id 
+//	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Id
+	@Column(name = "\"AgreementNum\"")
+	private int agrNum;
+	
+	@Id
 	@Column(name = "\"ItemNumber\"") 
 	private String itemNumber;
 
 	@Id
 	@Column(name = "\"Department\"")
-	private String department;
+	private String department; 
 	
-	@ManyToOne(cascade= CascadeType.ALL)
-	@JoinColumn(name = "\"AgreementNum\"" , referencedColumnName = "\"AgreementNum\"", insertable = false, updatable = false)
+//	@ManyToOne(cascade= CascadeType.ALL)
+	//@JoinColumn(name = "\"AgreementNum\"" , referencedColumnName = "\"AgreementNum\"", insertable = false, updatable = false)
 	
-	private AgreementHeader agrHeader;
-	@ManyToOne(cascade= CascadeType.ALL)
+	/*private AgreementHeader agrHeader;
+	@OneToOne(cascade= CascadeType.ALL)
 	@JoinColumn(name = "\"Department\"" , referencedColumnName = "\"Department\"", insertable = false, updatable = false)
-	private DepartmentMaster depmaster ;
+	private DepartmentMaster depmaster */;
 	
 
-	public int getAgrnum() {
-		return agrnum;
+
+
+	public int getAgrNum() {
+		return agrNum;
 	}
 
-	public void setAgrnum(int agrnum) {
-		this.agrnum = agrnum;
+	public void setAgrNum(int agrNum) {
+		this.agrNum = agrNum;
 	}
 
 	public String getItemNumber() {
@@ -64,21 +82,21 @@ public class AgreementItems implements Serializable{
 		this.department = department;
 	}
 
-	public AgreementHeader getAgrHeader() {
+/*	public AgreementHeader getAgrHeader() {
 		return agrHeader;
 	}
 
 	public void setAgrHeader(AgreementHeader agrHeader) {
 		this.agrHeader = agrHeader;
-	}
+	}*/
 
-	public DepartmentMaster getDepmaster() {
+	/*public DepartmentMaster getDepmaster() {
 		return depmaster;
 	}
 
 	public void setDepmaster(DepartmentMaster depmaster) {
 		this.depmaster = depmaster;
-	}
+	}*/ 
 	
 
 }

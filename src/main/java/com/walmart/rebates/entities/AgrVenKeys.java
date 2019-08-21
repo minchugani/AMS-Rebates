@@ -2,14 +2,18 @@ package com.walmart.rebates.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+
 public class AgrVenKeys implements Serializable {
-	private int agrnum;
+//	private int agrnum;
+	@Column(name = "\"AgreementNum\"")
+	private int agrNum;
 	private String vendorNumber;
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + agrnum;
+		result = prime * result + agrNum;
 		result = prime * result + ((vendorNumber == null) ? 0 : vendorNumber.hashCode());
 		return result;
 	}
@@ -22,7 +26,7 @@ public class AgrVenKeys implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		AgrVenKeys other = (AgrVenKeys) obj;
-		if (agrnum != other.agrnum)
+		if (agrNum != other.agrNum)
 			return false;
 		if (vendorNumber == null) {
 			if (other.vendorNumber != null)
