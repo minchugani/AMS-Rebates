@@ -13,8 +13,14 @@ import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.PostLoad;
+import javax.persistence.PrePersist;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.kie.api.KieServices;
+import org.kie.api.runtime.KieContainer;
+import org.kie.api.runtime.KieSession;
 
 
 
@@ -82,6 +88,18 @@ public class AgreementItems implements Serializable{
 		this.department = department;
 	}
 
+	@PostLoad
+	public void test() {
+		
+		 KieServices ks = KieServices.Factory.get();
+	     KieContainer kContainer = ks.getKieClasspathContainer();
+	     KieSession kSession = kContainer.newKieSession("ksession-rules");
+	     // go !
+	     AgrEx ex= new AgrEx();
+	     ex.setKey1("test");
+	     kSession.insert(ex);
+	     kSession.fireAllRules();
+	}
 /*	public AgreementHeader getAgrHeader() {
 		return agrHeader;
 	}

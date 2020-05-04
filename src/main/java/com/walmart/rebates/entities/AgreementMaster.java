@@ -6,11 +6,18 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.PostLoad;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.SecondaryTable;
 import javax.persistence.SecondaryTables;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.kie.api.KieServices;
+import org.kie.api.runtime.KieContainer;
+import org.kie.api.runtime.KieSession;
+
+
 
 @Entity
 @SecondaryTables({@SecondaryTable(name = "Agr_item", pkJoinColumns=@PrimaryKeyJoinColumn(name="AgrNum")),
@@ -230,6 +237,7 @@ public String getPaymentTerms() {
 public void setPaymentTerms(String paymentTerms) {
 	this.paymentTerms = paymentTerms;
 }
+
 
 
 

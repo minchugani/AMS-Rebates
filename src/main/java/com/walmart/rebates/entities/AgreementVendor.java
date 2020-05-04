@@ -14,14 +14,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name = "\"Agreement_Vendor\"")
-@IdClass(AgrVenKeys.class)
+//@IdClass(AgrVenKeys.class)
 public class AgreementVendor implements Serializable {
 	@Id 
 //	@GeneratedValue
 	@Column(name = "\"AgreementNum\"")
 	private int agrNum;
 	
-    @Id
+//    @Id
 	@Column(name = "\"VendorNumber\"")
 	private String vendorNumber;
 	

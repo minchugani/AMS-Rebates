@@ -1,0 +1,6 @@
+package rules
+import com.walmart.rebates.entities.AgrEx
+rule "Test"
+when AgrEx(key1=="test")
+then System.out.println("Success");
+end
